@@ -21,7 +21,7 @@ router.get('/:id', (req,res) => {
 })
 
 // Post a new workout
-router.get('/', async (req,res) => {
+router.post('/', async (req,res) => {
   const {title,load,reps} = req.body
 
   try {
@@ -33,9 +33,13 @@ router.get('/', async (req,res) => {
 })
 
 // Delete a workout
-router.delete("/:id", deleteWorkout);
+router.delete('/:id', (req,res) => {
+  res.json({mssg:'Delete a workout'})
+})
 
 // Update a workout
-router.patch("/:id", updateWorkout);
+router.patch("/:id", (req,res) => {
+  res.json({mssg:'Update a workout'})
+});
 
 module.exports = router;
