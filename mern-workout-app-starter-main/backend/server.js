@@ -6,10 +6,14 @@
 // config() attaches environment variables to process.env
 require("dotenv").config();
 
+
+
 // Require express that installed via npm
 const express = require("express");
 // Require mongoose that installed via npm
 const mongoose = require("mongoose");
+// Require cors
+const cors = require("cors")
 // Require routes
 const workoutRoutes = require("./routes/workouts");
 
@@ -23,6 +27,7 @@ const app = express();
 // Parse and attach data sent to server to request object
 app.use(express.json());
 
+app.use(cors({origin: "http://localhost:3000/"}))
 // Global middleware
 // the arrow function will fire for each request that comes in
 app.use((req, res, next) => {
