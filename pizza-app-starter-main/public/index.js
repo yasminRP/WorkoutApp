@@ -52,7 +52,6 @@ function Menu() {
 function Order(){
   return(
     <h3>We're currently open</h3>
-    <h5></h5>
 
   )
 }
